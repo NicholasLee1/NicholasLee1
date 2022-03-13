@@ -1,22 +1,13 @@
-import pygame
-import config
 from game import Game
 from gamestate import GameState
+import menu
 
-pygame.init()
+game = Game()
 
-screen = pygame.display.set_mode([600,400])
+player1 = game.intro()
 
-pygame.display.set_caption("Pokemon Clone")
-
-clock = pygame.time.Clock()
-
-game = Game(screen)
-
-game.set_up()
-
-
-while game.gamestate == GameState.RUNNING:
-    clock.tick(50)
-    game.update()
-    pygame.display.flip()
+while game.gamestate != GameState.ENDED:
+    if game.gamestate == GameState.MENU:
+        menu.display()
+        game.gamestate = player1.player_input()
+    

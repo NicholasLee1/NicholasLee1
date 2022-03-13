@@ -1,19 +1,23 @@
-import pygame
-import config
+from gamestate import GameState
 
 class Player:
-    def __init__(self, x_position, y_position):
-        print("Player created")
-        self.position = [x_position, y_position]
+    def __init__(self, name, class_type, age, sex):
+        self.name = name
+        self.class_type = class_type
+        self.age = age
+        self.sex = sex
+    
+    def player_input(self):
+        try:
+            num = int(input("Please select an option: "))
+            if num == 1:
+                x = GameState.MENU
+            elif num == 20:
+                x = GameState.ENDED
+            return x
+        except ValueError:
+            print("Please input a number.")
 
-    def update(self):
-        print("Player updated")
+        
 
-    def render(self, screen):
-        pygame.draw.rect(screen, config.WHITE, (self.position[0] * config.SCALE, self.position[1] * config.SCALE, config.SCALE, config.SCALE), 4)
-
-    def update_position(self, x_change, y_change):
-        self.position[0] += x_change
-        self.position[1] += y_change
-
-
+    

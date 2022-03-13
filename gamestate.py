@@ -1,6 +1,12 @@
 from enum import Enum
 
 class GameState(Enum):
-    NONE = 0
-    RUNNING = 1
-    ENDED = 2
+    GAMESTATE = 0
+    RUNNING = 10
+    ENDED = 20
+    
+    MENU = 1
+    QUEST = 2
+    INVENTORY = 3
+    STATS = 4
+
